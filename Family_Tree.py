@@ -13,7 +13,11 @@ class FamilyTree(object):
     def __repr__(self):
         for i in self.tree.adj_map:
             return i
+
+    def members(self):
+        return self.tree.vertex_count()
+
 Eric = Person("Eric", 198, "male")
 Tree = FamilyTree("Hawick", Eric)
-print(Tree.tree.size)
+print(Tree.members())
 print(Tree)

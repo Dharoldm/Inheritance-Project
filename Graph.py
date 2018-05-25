@@ -127,20 +127,6 @@ class Graph(object):
             return self.edges
 
 
-    def generate_edges(self):
-        """
-        DO NOT EDIT THIS METHOD
-        Generates directed edges between vertices to form a DAG
-        :return: List of edges
-        """
-        random.seed(10)
-        edges = []
-        for i in range(self.size):
-            for j in range(i + 1, self.size):
-                if random.randrange(0, 100) <= self.connectedness * 100:
-                    edges.append([i, j, random.randint(-10, 50)])
-        return edges
-
     def __init__(self, size=0, connectedness=0):
         """
         DO NOT EDIT THIS METHOD
@@ -159,7 +145,7 @@ class Graph(object):
         Creates vertices and edges within the graph using the result of generate_edges
         :return: None
         """
-        edges_list = self.generate_edges()
+        edges_list = []
         for i in edges_list:
             if i[0] not in self.adj_map:      # check if the source Vertex exists
                 source = Graph.Vertex(i[0])
